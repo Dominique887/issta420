@@ -1,0 +1,13 @@
+T-sqlhomework1
+#1 semantic model for representing data based on two mathematical branches.set theory and predicate logic
+language independent the data base management use the rembles the english langueage a represention of a set
+#2a wide va
+#3canidate key,DEFINED ON ONE OR MORE ATTRIBUTESTHAT KEEPS THE SAME TUPLE FROM HAPPENING
+#4foreign keys one or more attributes of a relation and references a canidate key in another relation
+#5 set
+#6 unkown have to assign a value NULL MARKER,IT WOULD BE facid with a lowercase ID
+#7NOT IT WOULD BE petid combine 1st and 2nd line to be owners.petid
+#8
+#9 data entry and not responding such as insert,update,delete
+#10the simplest data warehouse,dimensions implemented as a single table 
+
