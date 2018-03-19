@@ -1,0 +1,63 @@
+.echo on
+.headers on
+.mode column
+
+
+
+-- Name: chapter 3 sql
+-- Author: Dominique Austin
+-- Date: March 7, 2018
+
+
+-- 1
+select e.lastname, e.firstname, e.employeeid, o.employeeid, o.orderdate, o.orderid
+from orders o join employees e on e.employeeid = o.employeeid 
+order by e.lastname, e.firstname, o.orderdate, o.orderid; 
+
+-- 2
+select t.territorydescription, t.regionid, r.regiondescription
+from region r join territories t on r.regionid = t.regionid
+order by r.regiondescription, t.territorydescription;
+
+-- 3
+select s.companyname, p.productname, p.productid
+from suppliers s join products p on s.supplierid = p.supplierid
+order by s.companyname, p.productname;
+
+-- 4
+select o.orderid, o.orderdate, od.orderid,  od.productid, od.unitprice, od.quantity
+from orders o join order_details od on o.orderid = od.orderid
+where o.orderdate = '1998-05-05'
+order by o.orderdate, o.orderid, od.productid;
+
+-- 5
+select o.orderid, o.orderdate, od.orderid, od.unitprice, od.quantity,
+od.productid, p.productid, p.productname 
+from 
+  (orders o 
+    join order_details od on o.orderid = od.orderid)
+    join products p on p.productid = od.productid
+where o.orderdate = '1998-05-05'
+order by o.orderdate, o.orderid, od.productid;
+
+-- 6
+select o.orderid, o.orderdate, o.customerid, o.shipperid, 
+c.companyname as 'customer name', s.companyname as 'shipper name'
+ from orders o
+   join customers c on c.customerid = o.customerid
+   join shippers s on s.shipperid = o.shipperid
+where o.orderdate like '1998-05-%';
+
+-- 7
+
+select o.orderid, o.customerid, o.employeeid, o.shipcountry, 
+  e.firstname || ' ' || e.lastname as 'EmployeeName', c.companyname 'Company Name'
+ from orders o
+   join employees e on e.employeeid = o.employeeid
+   join customers c on c.customerid = o.customerid
+ where o.shipcountry like 'Fr%';
+ 
+ -- 8
+ select p.productname, o.shipcountry
+
+

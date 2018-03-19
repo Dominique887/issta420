@@ -1,0 +1,16 @@
+-- Name ch04-labs.sql
+--Author Dominique Austin 
+--Date March 15, 2018
+
+--ex 01
+
+select max(o.orderdate) from sales.orders o;
+select top 1 orderdate from sales.orders order by orderdate desc;
+
+select o.orderid, o.custid, o.emip, o.orderdate from sales.orders o 
+  where o.orderdate = ( select max(o1.orderdate) from sales.orders o1;
+
+ --ex 02
+ select o.orderid, o.custid, o.emip, o.orderdate from sales.orders o  
+(select o1.custid, o1.count(o1.orderid) as Ordercount
+ from sales.orders o1 group by o1.custid order by ordercount desc);
